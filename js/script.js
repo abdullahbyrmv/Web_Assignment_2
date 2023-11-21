@@ -1,24 +1,34 @@
-const url = 'https://dummyjson.com/products';
+const url = "https://dummyjson.com/products";
 
-displayData();
+const handleErrors = (response) => {
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response;
+};
 
-async function displayData(){
-    const response = await fetch(url);
-    let data = await response.json();
-    console.log(data);
-
-    let brandName = document.querySelector(".brand");
-    let category = document.querySelector(".category");
-    let description = document.querySelector(".description");
-    let price = document.querySelector(".price");
-    let discountPercentage = document.querySelector(".discountPercentage");
-    let image = document.querySelector(".image");
-
-
-    brandName.innerHTML = "<b>Brand: </b> " + data.products[0].brand;
-    category.innerHTML = "<b>Category: </b>" + data.products[0].category;
-    description.innerHTML = "<b>Description: </b>" + data.products[0].description;
-    price.innerHTML = "<b>Price: </b>" + data.products[0].price  + " $";
-    discountPercentage.innerHTML = "<b>Discount Percentage: </b>" + data.products[0].discountPercentage + " %";
-    image.setAttribute("src",`${data.products[0].images[0]}`);
-}
+fetch(url)
+  .then(handleErrors)
+  .then((response) => response.json())
+  .then((data) => {
+    const products = data.products || [];
+    const productListBlock = document.getElementById("container");
+    
+    products.forEach((product) => {
+      const productBlock = document.createElement("div");
+      productBlock.innerHTML = 
+                `<h2>${product.title}</h2>
+                <p>Price: ${product.price}</p>
+                <p>Discount: ${product.discountPercentage}%</p>
+                <p>Category: ${product.category}</p>
+                <p>Description: ${product.description}</p>
+                <p>Stock: ${product.stock}</p>
+                <img src="${product.thumbnail}" id="image" alt="${product.title}">`
+            ;
+            productListBlock.appendChild(productBlock);
+      document.getElementById("image").classList.add("img");
+    });
+  })
+  .catch((error) => {
+    console.error(error.message);
+  });
