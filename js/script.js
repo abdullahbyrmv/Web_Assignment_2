@@ -21,12 +21,12 @@ fetch(url)
                 <p>Price: ${product.price}</p>
                 <p>Discount: ${product.discountPercentage}%</p>
                 <p>Category: ${product.category}</p>
-                <p>Description: ${product.description}</p>
                 <p>Stock: ${product.stock}</p>
                 <img src="${product.thumbnail}" id="image" alt="${product.title}">`
             ;
             productListBlock.appendChild(productBlock);
       document.getElementById("image").classList.add("img");
+      productBlock.classList.add("products");
     });
   })
   .catch((error) => {

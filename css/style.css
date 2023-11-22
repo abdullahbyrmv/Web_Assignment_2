@@ -1,14 +1,29 @@
 body {
   text-align: center;
+  background: url(https://media.istockphoto.com/id/1283068536/photo/green-paper-texture.webp?b=1&s=170667a&w=0&k=20&c=VhHaL0ysyDfbPb-tU3E3b9g9NimHVLKih1lA57-VQs8=);
+  color: #042200;
 }
 
 img {
-  width: 450px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
 }
 
 #container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 5px;
+}
+
+.products {
+  border: 3px solid #386a20;
+  background-color: #b7f497;
+}
+
+p{
+  font-size: 20px;
+}
+
+h2{
+  color: #183807;
 }
