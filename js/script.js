@@ -11,7 +11,13 @@ fetch(url)
   .then(handleErrors)
   .then((response) => response.json())
   .then((data) => {
-    const products = data.products || [];
+    let products;
+    if (data && data.products) {
+      products = data.products;
+    } else {
+      products = [];
+    }
+
     const productListBlock = document.getElementById("container");
     
     products.forEach((product) => {
@@ -24,7 +30,7 @@ fetch(url)
                 <p>Stock: ${product.stock}</p>
                 <img src="${product.thumbnail}" id="image" alt="${product.title}">`
             ;
-            productListBlock.appendChild(productBlock);
+      productListBlock.appendChild(productBlock);
       document.getElementById("image").classList.add("img");
       productBlock.classList.add("products");
     });
