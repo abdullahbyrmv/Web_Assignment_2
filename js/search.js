@@ -1,3 +1,5 @@
+let textInput = document.querySelector("#search_bar");
+
 function search(){
     const searchBoxValue = document.getElementById("search_bar").value.toLowerCase();
     const products = document.getElementById("container");
@@ -6,7 +8,7 @@ function search(){
 
     for(let i = 0 ; i < productTitle.length ; i++){
         let cmp = allProducts[i].getElementsByTagName('h2')[0];
-        if(cmp != null || cmp !=undefined){
+        if(cmp != null || cmp != undefined){
             let textValue = cmp.textContent || cmp.innerHTML;
             if(textValue.toLowerCase().includes(searchBoxValue)){
                 allProducts[i].style.display = "";
@@ -17,3 +19,5 @@ function search(){
         }
     }
 }
+
+textInput.addEventListener('keyup',search);
