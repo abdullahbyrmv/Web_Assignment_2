@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/index.css" />
     <title>Assignment 2</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Hello, here is the list of all products</h1>
+
+    <div class="searchBar">
+      <form>
+        <input type="text" id="search_bar" placeholder="Enter Keyword" onkeyup="search()"/>
+      </form>
+    </div>
 
     <div id="container"></div>
     <script src="./js/index.js"></script>
     <script src="./js/pagination.js"></script>
-</body>
+    <script src="./js/search.js"></script>
+  </body>
 </html>

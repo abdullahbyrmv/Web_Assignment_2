@@ -21,14 +21,21 @@ img {
   cursor: pointer;
 }
 
-.products:hover{
+.products:hover {
   background-color: #92cc74;
 }
 
-p{
+p {
   font-size: 20px;
 }
 
-h2{
+h2 {
   color: #183807;
+}
+
+.searchBar {
+  width: 200px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
 }
