@@ -18,6 +18,11 @@ img {
 .products {
   border: 3px solid #386a20;
   background-color: #b7f497;
+  cursor: pointer;
+}
+
+.products:hover{
+  background-color: #92cc74;
 }
 
 p{

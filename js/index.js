@@ -29,7 +29,11 @@ fetch(url)
                 <p>Category: ${product.category}</p>
                 <p>Stock: ${product.stock}</p>
                 <img src="${product.thumbnail}" id="image" alt="${product.title}">`
-            ;
+                
+            productBlock.addEventListener("click", () => {
+              window.location.href = `details.html?id=${product.id}`;
+          });
+
       productListBlock.appendChild(productBlock);
       document.getElementById("image").classList.add("img");
       productBlock.classList.add("products");
