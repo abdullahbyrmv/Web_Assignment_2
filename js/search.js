@@ -1,6 +1,6 @@
 let textInput = document.querySelector("#search_bar");
 
-function search(){
+function searchByTitle(){
     const searchBoxValue = document.getElementById("search_bar").value.toLowerCase();
     const products = document.getElementById("container");
     const allProducts = document.querySelectorAll(".products");
@@ -20,4 +20,4 @@ function search(){
     }
 }
 
-textInput.addEventListener('keyup',search);
+textInput.addEventListener('keyup',searchByTitle);

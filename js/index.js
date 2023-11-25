@@ -17,28 +17,27 @@ fetch(url)
     } else {
       products = [];
     }
+    displayProducts(products);
+  }).catch(((error) => console.log(error)));
 
-    const productListBlock = document.getElementById("container");
-    
-    products.forEach((product) => {
+function displayProducts(products) {
+  const productListBlock = document.getElementById("container");
+  products
+    .forEach((product) => {
       const productBlock = document.createElement("div");
-      productBlock.innerHTML = 
-                `<h2>${product.title}</h2>
+      productBlock.classList.add("products");
+      productBlock.innerHTML = `<h2>${product.title}</h2>
                 <p>Price: ${product.price}</p>
                 <p>Discount: ${product.discountPercentage}%</p>
-                <p>Category: ${product.category}</p>
+                <p id="category">Category: ${product.category}</p>
                 <p>Stock: ${product.stock}</p>
-                <img src="${product.thumbnail}" id="image" alt="${product.title}">`
-                
-            productBlock.addEventListener("click", () => {
-              window.location.href = `details.html?id=${product.id}`;
-          });
+                <img src="${product.thumbnail}" id="image" alt="${product.title}">`;
 
+      productBlock.addEventListener("click", () => {
+        const url = `details.html?id=${product.id}`;
+        window.open(url, '_blank');
+      });
       productListBlock.appendChild(productBlock);
       document.getElementById("image").classList.add("img");
-      productBlock.classList.add("products");
-    });
-  })
-  .catch((error) => {
-    console.error(error.message);
-  });
+    })
+}
