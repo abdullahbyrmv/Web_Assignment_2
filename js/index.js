@@ -1,4 +1,5 @@
 const url = "https://dummyjson.com/products";
+let products = [];
 
 const handleErrors = (response) => {
   if (!response.ok) {
@@ -7,37 +8,37 @@ const handleErrors = (response) => {
   return response;
 };
 
-fetch(url)
-  .then(handleErrors)
-  .then((response) => response.json())
-  .then((data) => {
-    let products;
-    if (data && data.products) {
+document.addEventListener("DOMContentLoaded", () => {
+  fetch(url)
+    .then(handleErrors)
+    .then((response) => response.json())
+    .then((data) => {
       products = data.products;
-    } else {
-      products = [];
-    }
-    displayProducts(products);
-  }).catch(((error) => console.log(error)));
+      const textInput = document.querySelector("#search_bar");
+      textInput.addEventListener("keyup", search);
+      displayProducts(products);
+    })
+    .catch((error) => console.log(error));
+});
 
 function displayProducts(products) {
-  const productListBlock = document.getElementById("container");
-  products
-    .forEach((product) => {
-      const productBlock = document.createElement("div");
-      productBlock.classList.add("products");
-      productBlock.innerHTML = `<h2>${product.title}</h2>
+  const productListBlock = document.querySelector(".container");
+  productListBlock.innerHTML = "";
+  products.forEach((product) => {
+    const productBlock = document.createElement("div");
+    productBlock.classList.add("products");
+    productBlock.innerHTML = `<h2>${product.title}</h2>
                 <p>Price: ${product.price}</p>
                 <p>Discount: ${product.discountPercentage}%</p>
                 <p id="category">Category: ${product.category}</p>
                 <p>Stock: ${product.stock}</p>
                 <img src="${product.thumbnail}" id="image" alt="${product.title}">`;
 
-      productBlock.addEventListener("click", () => {
-        const url = `details.html?id=${product.id}`;
-        window.open(url, '_blank');
-      });
-      productListBlock.appendChild(productBlock);
-      document.getElementById("image").classList.add("img");
-    })
+    productBlock.addEventListener("click", () => {
+      const url = `details.html?id=${product.id}`;
+      window.open(url, "_blank");
+    });
+    productListBlock.appendChild(productBlock);
+    document.getElementById("image").classList.add("img");
+  });
 }

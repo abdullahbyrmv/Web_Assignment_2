@@ -9,7 +9,7 @@ img {
   height: 150px;
 }
 
-#container {
+.container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 5px;
