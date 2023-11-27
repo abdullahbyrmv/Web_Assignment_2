@@ -15,6 +15,25 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((data) => {
       products = data.products;
       const textInput = document.querySelector("#search_bar");
+      const categoryInput = document.querySelector("#category");
+
+      const categories = [];
+
+      for (const product of products) {
+        if (categories.includes(product.category) === false) {
+          categories.push(product.category);
+        }
+      }
+
+      for (let i = 0; i < categories.length; i++) {
+        const category = categories[i];
+        const categoryOption = document.createElement("option");
+        categoryOption.value = category.toLowerCase();
+        categoryOption.text = category;
+        categoryInput.appendChild(categoryOption);
+      }
+
+      categoryInput.addEventListener("change", search);
       textInput.addEventListener("keyup", search);
       displayProducts(products);
     })
