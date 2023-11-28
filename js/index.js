@@ -1,4 +1,4 @@
-const url = "https://dummyjson.com/products";
+const url = "https://dummyjson.com/products/?limit=100";
 let products = [];
 
 const handleErrors = (response) => {
