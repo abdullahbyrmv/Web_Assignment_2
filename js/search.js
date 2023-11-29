@@ -3,7 +3,8 @@ const productListBlock = document.querySelector(".container");
 function search() {
   const textInputValue = document
     .querySelector("#search_bar")
-    .value.trim().toLowerCase();
+    .value.trim()
+    .toLowerCase();
   const categoryInputValue = document
     .querySelector("#category")
     .value.toLowerCase();
@@ -29,13 +30,12 @@ function search() {
     if ((title || category || description) && categorySelect) {
       searchResults.push(product);
     }
-    // }
-    // if (searchResults.length === 0) {
-    //   productListBlock.innerHTML = "<h2>No products found.</h2>";
-    //   productListBlock.classList.remove("container");
-    //   productListBlock.classList.add("search_message");
-    // } else {
-    displayProducts(searchResults);
-    // }
   }
+  // if (searchResults.length === 0) {
+  //   productListBlock.innerHTML = "<h2>No products found.</h2>";
+  //   productListBlock.classList.remove("container");
+  //   productListBlock.classList.add("search_message");
+  // } else {
+  displayProducts(searchResults);
+  // }
 }

@@ -60,4 +60,6 @@ function displayProducts(products) {
     productListBlock.appendChild(productBlock);
     document.getElementById("image").classList.add("img");
   });
+  currentPage = 1;
+  displayPagination();
 }
