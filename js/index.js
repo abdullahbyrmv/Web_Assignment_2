@@ -29,10 +29,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const category = categories[i];
         const categoryOption = document.createElement("option");
         categoryOption.value = category.toLowerCase();
-        categoryOption.text = category;
+        categoryOption.text =
+          category.slice(0, 1).toUpperCase() + category.slice(1);
         categoryInput.appendChild(categoryOption);
       }
-
       categoryInput.addEventListener("change", search);
       textInput.addEventListener("keyup", search);
       displayProducts(products);

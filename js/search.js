@@ -31,11 +31,5 @@ function search() {
       searchResults.push(product);
     }
   }
-  // if (searchResults.length === 0) {
-  //   productListBlock.innerHTML = "<h2>No products found.</h2>";
-  //   productListBlock.classList.remove("container");
-  //   productListBlock.classList.add("search_message");
-  // } else {
   displayProducts(searchResults);
-  // }
 }
