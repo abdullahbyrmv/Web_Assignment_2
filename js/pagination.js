@@ -40,17 +40,6 @@ function managePagination() {
     }
   }
 
-  function createPaginationItem(text, pageNumber, currentPage) {
-    const pageItem = document.createElement("li");
-    pageItem.innerText = text;
-    pageItem.setAttribute("onclick", `updatePage(${pageNumber})`);
-
-    if (pageNumber === currentPage) {
-      pageItem.classList.add("active");
-    }
-    paginationContainer.appendChild(pageItem);
-  }
-
   if (currentPage > 1) {
     createPaginationItem("prev", currentPage - 1, currentPage);
   }
@@ -61,6 +50,17 @@ function managePagination() {
 
   if (currentPage < total_pages) {
     createPaginationItem("next", currentPage + 1, currentPage);
+  }
+
+  function createPaginationItem(text, pageNumber, currentPage) {
+    const pageItem = document.createElement("li");
+    pageItem.innerText = text;
+    pageItem.setAttribute("onclick", `updatePage(${pageNumber})`);
+
+    if (pageNumber === currentPage) {
+      pageItem.classList.add("active");
+    }
+    paginationContainer.appendChild(pageItem);
   }
 }
 
