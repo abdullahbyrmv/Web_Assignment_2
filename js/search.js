@@ -1,5 +1,3 @@
-const productListBlock = document.querySelector(".container");
-
 function search() {
   const textInputValue = document
     .querySelector("#search_bar")
