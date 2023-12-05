@@ -1,5 +1,8 @@
 # Web_Assignment_2
 
+<a href = "https://abdullahbyrmv.github.io/Web_Assignment_2/">Live Demo of Project</a>
+
+
 Please follow those steps to setup and run application
 <ol>
 <li>
