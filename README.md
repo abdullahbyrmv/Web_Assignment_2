@@ -1,6 +1,6 @@
 # Web_Assignment_2
 
-<a href = "https://abdullahbyrmv.github.io/Web_Assignment_2/">Live Demo of Project</a>
+### [Live Demo of Project](https://abdullahbyrmv.github.io/Web_Assignment_2/)
 
 
 Please follow those steps to setup and run application
